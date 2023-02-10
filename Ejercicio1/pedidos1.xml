@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pedidos SYSTEM "pedidos.dtd">
+<pedidos>
+    <pedido>
+        <detalles>
+            <sucursal cod_sucursal="A0571291">Los Remedios S.A (Cádiz)</sucursal>
+            <trabajador_solicitante>Juan Pérez Ramos</trabajador_solicitante>
+            <direccion>
+                <direccion_conjunta>Av. Del Sastre 89 S/N</direccion_conjunta>
+            </direccion>
+            <fecha_pedido>2021-2-2</fecha_pedido>
+            <observaciones_pedido>Urgente</observaciones_pedido>
+        </detalles>
+        <articulos>
+            <articulo cod_articulo="ABC-123">
+                <nombre>Silla Ergonómica Oficina (Blanco)</nombre>
+                <cantidad>30</cantidad>
+                <precio_unidad>75.00</precio_unidad>
+                <precio_final>2250.00</precio_final>
+                <observaciones_art>Estables y cómodas, buen diseño.</observaciones_art>
+                <plazo_revision>30</plazo_revision>
+            </articulo>
+        </articulos>
+    </pedido>
+</pedidos>

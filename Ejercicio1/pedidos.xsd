@@ -1,0 +1,69 @@
+<xs:schema elementFormDefault="unqualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="pedidos">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="pedido" maxOccurs="unbounded" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="detalles">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="sucursal">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element type="xs:string" name="nombre_sucursal"/>
+                                                </xs:sequence>
+                                                <xs:attribute type="formato_cod_sucursal" name="cod_sucursal" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element type="xs:string" name="trabajador_solicitante"/>
+                                        <xs:element type="xs:string" name="direccion"/>
+                                        <xs:element type="xs:date" name="fecha_pedido"/>
+                                        <xs:element type="valores_observaciones" name="observaciones" maxOccurs="1" minOccurs="0"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="articulos">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="articulo" maxOccurs="unbounded" minOccurs="1">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element type="xs:string" name="nombre"/>
+                                                    <xs:element type="xs:int" name="cantidad"/>
+                                                    <xs:element type="xs:decimal" name="precio_unidad"/>
+                                                    <xs:element type="xs:decimal" name="precio_final"/>
+                                                    <xs:element type="xs:string" name="observaciones"/>
+                                                    <xs:element type="xs:int" name="plazo_revision"/>
+                                                </xs:sequence>
+                                                <xs:attribute type="formato_cod_articulo" name="cod_articulo" use="required"/>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Restricciones de los códigos de la sucursal y los articulos
+        y de los posibles valores para el elemento opcional "observaciones" de "detalles" -->
+    <xs:simpleType name="formato_cod_sucursal">
+        <xs:restriction base="xs:token">
+            <xs:pattern value="[A-Z][0-9]{7}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="formato_cod_articulo">
+        <xs:restriction base="xs:token">
+            <xs:pattern value="[A-Z]{3}-[0-9]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="valores_observaciones">
+        <xs:restriction base="xs:boolean">
+            <xs:pattern value="(Urgente|Incompleto)"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

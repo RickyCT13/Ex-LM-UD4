@@ -1,0 +1,27 @@
+<!ELEMENT pedidos (pedido)*>
+<!-- El pedido tiene dos partes: los detalles de la solicitud y
+    el o los artículos que la sucursal haya solicitado
+    (Para que exista un pedido, debe haber al menos un artículo) --> 
+<!ELEMENT pedido (detalles, articulos)>
+<!-- Detalles de la sucursal solicitante y de la solicitud -->
+<!ELEMENT detalles (sucursal, trabajador_solicitante, direccion+, fecha_pedido, observaciones_pedido*)>
+<!-- El elemento sucursal va a tener su código como atributo, igual que los artículos -->
+<!ELEMENT sucursal (#PCDATA)>
+<!ATTLIST sucursal cod_sucursal ID #REQUIRED>
+<!ELEMENT trabajador_solicitante (#PCDATA)>
+<!ELEMENT direccion (((direccion_gestion|direccion_exposicion)|direccion_conjunta))>
+<!ELEMENT direccion_gestion (#PCDATA)*>
+<!ELEMENT direccion_exposicion (#PCDATA)*>
+<!ELEMENT direccion_conjunta (#PCDATA)>
+<!ELEMENT fecha_pedido (#PCDATA)>
+<!ELEMENT observaciones_pedido (#PCDATA)>
+<!-- Artículos en el pedido -->
+<!ELEMENT articulos (articulo)+>
+<!ELEMENT articulo (nombre, cantidad, precio_unidad, precio_final, observaciones_art, plazo_revision)>
+<!ATTLIST articulo cod_articulo ID #REQUIRED>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT cantidad (#PCDATA)>
+<!ELEMENT precio_unidad (#PCDATA)>
+<!ELEMENT precio_final (#PCDATA)>
+<!ELEMENT observaciones_art (#PCDATA)>
+<!ELEMENT plazo_revision (#PCDATA)>

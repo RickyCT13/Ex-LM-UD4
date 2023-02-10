@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="pedidos.xsd"?>
+<pedidos>
+    <pedido>
+        <detalles>
+            <sucursal cod_sucursal="A0571291">
+                <nombre_sucursal>Los Remedios S.A (Almería)</nombre_sucursal>
+            </sucursal>
+            <trabajador_solicitante>Francisco Nuevo Fernández</trabajador_solicitante>
+            <direccion>
+                (Gestión) Calle Palacios nº23
+                (Exposicion) Avenida Gran Parque S/N
+            </direccion>
+            <fecha_pedido>2022-02-12</fecha_pedido>
+        </detalles>
+        <articulos>
+            <articulo cod_articulo="ABC-123">
+                <nombre>Silla Ergonómica Oficina (Blanco)</nombre>
+                <cantidad>30</cantidad>
+                <precio_unidad>75.00</precio_unidad>
+                <precio_final>2250.00</precio_final>
+                <observaciones>Estables y cómodas, buen diseño.</observaciones>
+                <plazo_revision>30</plazo_revision>
+            </articulo>
+        </articulos>
+    </pedido>
+</pedidos>
